@@ -18,37 +18,58 @@
         </h1>
     </div>
     <main>
-        <!-- aside - parte sinistra - chats -->
+        <!-- aside - chats contatti - parte sinistra -->
         <aside>
-            <!-- header aside - intestazione -->
+            <!-- header dell'aside - intestazione -->
             <header>
                 <div>
-                    <img src="img/avatar_1.jpg" alt="avatar_1">
-                    <h4>Dylan</h4>
-                </div>
-                <div>
                     <ul>
-                        <li><i class="fa-solid fa-circle-notch"></i></li>
-                        <li><i class="fa-solid fa-message"></i></li>
-                        <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                        <li>
+                            <ul>
+                                <li class="logo-header">
+                                    <img src="img/avatar_1.jpg" alt="avatar_1">
+                                </li>
+                                <li>
+                                    <h4>Dylan</h4>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li><i class="fa-solid fa-circle-notch"></i></li>
+                                <li><i class="fa-solid fa-message"></i></li>
+                                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                            </ul>
+                        </li>
                     </ul>
+                    
                 </div>
             </header>
 
             <!-- nav aside - barra di ricerca -->
-             <nav>
+            <nav>
                 <div>
-                    <div><i class="fa-solid fa-bell-slash"></i></div>
-                    <div>
-                        <p>Ricevi notifiche di nuovi messaggi</p>
-                        <a href="#">Attiva notifiche desktop</a>
-                    </div>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </li>
+                        <li>
+                            <p>Ricevi notifiche di nuovi messaggi</p>
+                            <a href="#">Attiva notifiche desktop</a>
+                        </li>
+                    </ul>
                 </div>
                 <div>
-                    <div><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <input type="text" >
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                        <li>
+                            <input type="text" >
+                        </li>
+                    </ul>
                 </div>
-             </nav>
+            </nav>
 
             <!-- main aside - chats -->
             <main>
@@ -58,7 +79,7 @@
                         <!-- contatto -->
                         <li>
                             <ul>
-                                <li>
+                                <li class="logo-chat">
                                     <img src="img/avatar_2.jpg" alt="">
                                 </li>
                                 <li>
@@ -80,7 +101,7 @@
                         <!-- contatto -->
                         <li>
                             <ul>
-                                <li>
+                                <li class="logo-chat">
                                     <img src="img/avatar_2.jpg" alt="">
                                 </li>
                                 <li>
@@ -102,7 +123,7 @@
                         <!-- contatto -->
                         <li>
                             <ul>
-                                <li>
+                                <li class="logo-chat">
                                     <img src="img/avatar_2.jpg" alt="">
                                 </li>
                                 <li>
@@ -124,7 +145,7 @@
                         <!-- contatto -->
                         <li>
                             <ul>
-                                <li>
+                                <li class="logo-chat">
                                     <img src="img/avatar_2.jpg" alt="">
                                 </li>
                                 <li>
@@ -146,7 +167,7 @@
                         <!-- contatto -->
                         <li>
                             <ul>
-                                <li>
+                                <li class="logo-chat">
                                     <img src="img/avatar_2.jpg" alt="">
                                 </li>
                                 <li>
@@ -168,7 +189,7 @@
                         <!-- contatto -->
                         <li>
                             <ul>
-                                <li>
+                                <li class="logo-chat">
                                     <img src="img/avatar_2.jpg" alt="">
                                 </li>
                                 <li>
@@ -190,7 +211,7 @@
                         <!-- contatto -->
                         <li>
                             <ul>
-                                <li>
+                                <li class="logo-chat">
                                     <img src="img/avatar_2.jpg" alt="">
                                 </li>
                                 <li>
@@ -212,7 +233,7 @@
                         <!-- contatto -->
                         <li>
                             <ul>
-                                <li>
+                                <li class="logo-chat">
                                     <img src="img/avatar_2.jpg" alt="">
                                 </li>
                                 <li>
@@ -229,6 +250,69 @@
                 </div>
             </main>
         </aside>
+
+        <!-- main - chat singolo contatto - parte destra -->
+        <main>
+            <!-- header del main -->
+            <header>
+                <div>
+                    <ul>
+                        <li>
+                            <ul>
+                                <li class="logo-header">
+                                    <img src="img/avatar_2.jpg" alt="avatar_2">
+                                </li>
+                                <li>
+                                    <h4>Michele</h4>
+                                    <p>Ultimo accesso oggi alle 12:00</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                                <li><i class="fa-solid fa-paperclip"></i></li>
+                                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            <!-- main messaggi -->
+            <main>
+                <div>
+                    <div>
+                        <h5>Hai portato a spasso il cane?</h5>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h5>Ricordati di stendere i panni</h5>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h5>Tutto fatto!</h5>
+                    </div>
+                </div>
+            </main>
+
+            <!-- barra messaggi -->
+            <nav>
+                <ul>
+                    <li>
+                        <i class="fa-regular fa-face-smile"></i>
+                    </li>
+                    <li>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-microphone"></i>
+                    </li>
+                </ul>
+            </nav>
+        </main>
     </main>
 
     <!--link VUE js-->
