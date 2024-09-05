@@ -6,23 +6,58 @@ RESET
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --aside-nav-first: #8FDAFC;
+    --main-header: #EAEAEA;
+    --aside-chats: #FFFFFF;
+    --aside-bell: #F2FBFF;
+    --active-chat: #EAEBEB;
+}
+
+/***************
+BACKGROUND-IMG
+***************/
+main .right-screen > main main {
+    background-image: url(../img/mine.jpg);
+}
 
 /***************
 COLOR
 ***************/
 body > main {
-    background-color: greenyellow;
+    background: rgb(0,150,136);
+    background: linear-gradient(180deg, rgba(0,150,136,1) 15%, rgba(219,219,211,1) 15%);
+}
+
+body main > ul {
+    background-color: var(--main-header);
+}
+
+main aside nav section:first-child {
+    background-color: var(--aside-nav-first);
+}
+
+main aside main {
+    background-color: var(--aside-chats);
+}
+
+main .right-screen header {
+    background-color: var(--main-header);
+}
+
+main aside nav section:first-child i {
+    background-color: #F2FBFF;
+}
+
+main .left-screen main .active {
+    background-color: var(--active-chat);
 }
 
 /***************
 GENERAL
 ***************/
-body > main {
-    display: flex;
-}
-
 ul {
-    list-style-type: none;
+    list-style: none;
     /* padding-left: 0;
     margin-left: 0; */
     display: flex;
@@ -39,4 +74,154 @@ img {
 
 .logo-chat {
     width: 15%;
+}
+
+body > main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body > main > ul {
+    width: 80%;
+    height: calc(100vh - 150px);
+}
+
+/***************
+ASIDE - LEFT-SCREEN
+***************/
+main .left-screen {
+    width: 35%;
+}
+
+main .left-screen header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+main .left-screen header > ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+main .left-screen header ul > li {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+main .left-screen header ul li:first-child li:first-child {
+    width: 50px;
+}
+
+main .left-screen header ul li:nth-child(2) i {
+    padding-right: 20px;
+}
+
+body aside {
+    height: 100%;
+    width: 100%;
+}
+
+main aside nav section, main aside nav section ul > li:first-child, main aside nav section:nth-child(2) ul > li:nth-child(2) {
+    display: flex;
+    align-items: center;
+}
+
+main aside nav section:first-child {
+    height: 60px;
+}
+main aside nav section:first-child i {
+    border-radius: 50%;
+    padding: 5px;
+}
+
+main aside nav section:nth-child(2) {
+    height: 25px;
+}
+
+main aside nav section ul input {
+    width: calc(310px - 30px);
+}
+main aside nav section ul li {
+    padding: 0 10px;
+}
+
+main aside main {
+    height: calc(100% - (60px + 60px + 25px));
+    overflow-y: auto;
+}
+
+/***************
+MAIN - RIGHT-SCREEN
+***************/
+main .right-screen {
+    width: 65%;
+}
+
+main .right-screen > main {
+    height: 100%;
+}
+
+main .right-screen header > ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+main .right-screen header > ul > li {
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+main .right-screen header > ul > li li {
+    padding-right: 10px;
+}
+
+main .right-screen header > ul > li i {
+    padding: 10px;
+}
+
+main .right-screen > main main {
+    height: calc(100% - (60px + 30px));
+    overflow-y: auto;
+    padding-top: 20px;
+}
+
+main .right-screen > main main > div {
+    margin: 5px 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+main .right-screen > main main > div > div {
+    width: 40%;
+    border-radius: 10px;
+}
+
+main .right-screen .receive {
+    align-self: flex-start;
+    background-color: #FFFFFF;
+}
+main .right-screen .send {
+    align-self: flex-end;
+    background-color: #D5F9BA;
+}
+
+main .right-screen > main main > div > div > div {
+    padding: 5px;
+}
+
+main .right-screen > main main > div > div > div p {
+    font-size: 0.7rem;
+    text-align: end;
+}
+
+main .right-screen nav ul {
+    height: 30px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: beige;
 }

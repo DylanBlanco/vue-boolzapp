@@ -12,307 +12,173 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div id="app">
-        <h1>
-            {{message}}
-        </h1>
-    </div>
-    <main>
-        <!-- aside - chats contatti - parte sinistra -->
-        <aside>
-            <!-- header dell'aside - intestazione -->
-            <header>
-                <div>
-                    <ul>
-                        <li>
+    <main id="app">
+        <ul>
+            <!-- parte sinistra -->
+            <li class="left-screen">
+                <!-- aside - chats contatti - parte sinistra -->
+                <aside>
+                    <!-- header dell'aside - intestazione -->
+                    <header>
+                        <ul>
+                            <li>
+                                <ul>
+                                    <li class="logo-header">
+                                        <img src="img/avatar_1.jpg" alt="avatar_1">
+                                    </li>
+                                    <li>
+                                        <h4>Dylan</h4>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li><i class="fa-solid fa-circle-notch"></i></li>
+                                    <li><i class="fa-solid fa-message"></i></li>
+                                    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </header>
+        
+                    <!-- nav aside - barra di ricerca -->
+                    <nav>
+                        <section>
                             <ul>
-                                <li class="logo-header">
-                                    <img src="img/avatar_1.jpg" alt="avatar_1">
+                                <li>
+                                    <i class="fa-solid fa-bell-slash"></i>
                                 </li>
                                 <li>
-                                    <h4>Dylan</h4>
+                                    <p>Ricevi notifiche di nuovi messaggi</p>
+                                    <a href="#">Attiva notifiche desktop</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
+                        </section>
+                        <section>
                             <ul>
-                                <li><i class="fa-solid fa-circle-notch"></i></li>
-                                <li><i class="fa-solid fa-message"></i></li>
-                                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                                <li>
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </li>
+                                <li>
+                                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
-                    
-                </div>
-            </header>
+                        </section>
+                    </nav>
+        
+                    <!-- main aside - chats -->
+                    <main>
+                        <!-- prima chat -->
+                        <div>
+                            <!-- contatto -->
+                            <ul v-for="(contact, index) in contacts"
+                            :class="{
+                                'active': index == chatActive
+                            }">
+                                <li>
+                                    <ul>
+                                        <li class="logo-chat">
+                                            <img :src="contact.avatar" :alt="contact.name">
+                                        </li>
+                                        <li>
+                                            <h4>{{contact.name}}</h4>
+                                            <p>Ultimo messaggio inviato</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- orario di ricezione messagio -->
+                                <li>
+                                    <p>12:00</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </main>
+                </aside>
+            </li>
 
-            <!-- nav aside - barra di ricerca -->
-            <nav>
-                <div>
-                    <ul>
-                        <li>
-                            <i class="fa-solid fa-bell-slash"></i>
-                        </li>
-                        <li>
-                            <p>Ricevi notifiche di nuovi messaggi</p>
-                            <a href="#">Attiva notifiche desktop</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <ul>
-                        <li>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </li>
-                        <li>
-                            <input type="text" >
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <!-- parte destra -->
+            <li class="right-screen">
+                <!-- main - chat singolo contatto - parte destra -->
+                <main>
+                    <!-- header del main -->
+                    <header>
+                        <ul>
+                            <li>
+                                <ul>
+                                    <li class="logo-header">
+                                        <img src="img/avatar_2.jpg" alt="avatar_2">
+                                    </li>
+                                    <li>
+                                        <h4>Michele</h4>
+                                        <p>Ultimo accesso oggi alle 12:00</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                                    <li><i class="fa-solid fa-paperclip"></i></li>
+                                    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </header>
+        
+                    <!-- main messaggi -->
+                    <main>
+                        <div v-for="(message, index) in contacts[chatActive].messages"
+                        :class="{
+                            'active': index == chatActive
+                        }">
+                            <div class="receive">
+                                <div>
+                                    <h5>{{(contacts[chatActive].messages).message}}</h5>
+                                </div>
+                                <div>
+                                    <p>12:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="receive">
+                                <div>
+                                    <h5>Ricordati di stendere i panni</h5>
+                                </div>
+                                <div>
+                                    <p>12:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="send">
+                                <div>
+                                    <h5>Tutto fatto!</h5>
+                                </div>
+                                <div>
+                                    <p>12:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+        
+                    <!-- barra messaggi -->
+                    <nav>
+                        <ul>
+                            <li>
+                                <i class="fa-regular fa-face-smile"></i>
+                            </li>
+                            <li>
+                                <input type="text">
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-microphone"></i>
+                            </li>
+                        </ul>
+                    </nav>
+                </main>
+            </li>
+        </ul>
 
-            <!-- main aside - chats -->
-            <main>
-                <!-- prima chat -->
-                <div>
-                    <ul>
-                        <!-- contatto -->
-                        <li>
-                            <ul>
-                                <li class="logo-chat">
-                                    <img src="img/avatar_2.jpg" alt="">
-                                </li>
-                                <li>
-                                    <h4>Michele</h4>
-                                    <p>Ultimo messaggio inviato</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- orario di ricezione messagio -->
-                        <li>
-                            <p>12:00</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- prima chat -->
-                <div>
-                    <ul>
-                        <!-- contatto -->
-                        <li>
-                            <ul>
-                                <li class="logo-chat">
-                                    <img src="img/avatar_2.jpg" alt="">
-                                </li>
-                                <li>
-                                    <h4>Michele</h4>
-                                    <p>Ultimo messaggio inviato</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- orario di ricezione messagio -->
-                        <li>
-                            <p>12:00</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- prima chat -->
-                <div>
-                    <ul>
-                        <!-- contatto -->
-                        <li>
-                            <ul>
-                                <li class="logo-chat">
-                                    <img src="img/avatar_2.jpg" alt="">
-                                </li>
-                                <li>
-                                    <h4>Michele</h4>
-                                    <p>Ultimo messaggio inviato</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- orario di ricezione messagio -->
-                        <li>
-                            <p>12:00</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- prima chat -->
-                <div>
-                    <ul>
-                        <!-- contatto -->
-                        <li>
-                            <ul>
-                                <li class="logo-chat">
-                                    <img src="img/avatar_2.jpg" alt="">
-                                </li>
-                                <li>
-                                    <h4>Michele</h4>
-                                    <p>Ultimo messaggio inviato</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- orario di ricezione messagio -->
-                        <li>
-                            <p>12:00</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- prima chat -->
-                <div>
-                    <ul>
-                        <!-- contatto -->
-                        <li>
-                            <ul>
-                                <li class="logo-chat">
-                                    <img src="img/avatar_2.jpg" alt="">
-                                </li>
-                                <li>
-                                    <h4>Michele</h4>
-                                    <p>Ultimo messaggio inviato</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- orario di ricezione messagio -->
-                        <li>
-                            <p>12:00</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- prima chat -->
-                <div>
-                    <ul>
-                        <!-- contatto -->
-                        <li>
-                            <ul>
-                                <li class="logo-chat">
-                                    <img src="img/avatar_2.jpg" alt="">
-                                </li>
-                                <li>
-                                    <h4>Michele</h4>
-                                    <p>Ultimo messaggio inviato</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- orario di ricezione messagio -->
-                        <li>
-                            <p>12:00</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- prima chat -->
-                <div>
-                    <ul>
-                        <!-- contatto -->
-                        <li>
-                            <ul>
-                                <li class="logo-chat">
-                                    <img src="img/avatar_2.jpg" alt="">
-                                </li>
-                                <li>
-                                    <h4>Michele</h4>
-                                    <p>Ultimo messaggio inviato</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- orario di ricezione messagio -->
-                        <li>
-                            <p>12:00</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- prima chat -->
-                <div>
-                    <ul>
-                        <!-- contatto -->
-                        <li>
-                            <ul>
-                                <li class="logo-chat">
-                                    <img src="img/avatar_2.jpg" alt="">
-                                </li>
-                                <li>
-                                    <h4>Michele</h4>
-                                    <p>Ultimo messaggio inviato</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- orario di ricezione messagio -->
-                        <li>
-                            <p>12:00</p>
-                        </li>
-                    </ul>
-                </div>
-            </main>
-        </aside>
-
-        <!-- main - chat singolo contatto - parte destra -->
-        <main>
-            <!-- header del main -->
-            <header>
-                <div>
-                    <ul>
-                        <li>
-                            <ul>
-                                <li class="logo-header">
-                                    <img src="img/avatar_2.jpg" alt="avatar_2">
-                                </li>
-                                <li>
-                                    <h4>Michele</h4>
-                                    <p>Ultimo accesso oggi alle 12:00</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul>
-                                <li><i class="fa-solid fa-magnifying-glass"></i></li>
-                                <li><i class="fa-solid fa-paperclip"></i></li>
-                                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </header>
-
-            <!-- main messaggi -->
-            <main>
-                <div>
-                    <div>
-                        <h5>Hai portato a spasso il cane?</h5>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <h5>Ricordati di stendere i panni</h5>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <h5>Tutto fatto!</h5>
-                    </div>
-                </div>
-            </main>
-
-            <!-- barra messaggi -->
-            <nav>
-                <ul>
-                    <li>
-                        <i class="fa-regular fa-face-smile"></i>
-                    </li>
-                    <li>
-                        <input type="text">
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-microphone"></i>
-                    </li>
-                </ul>
-            </nav>
-        </main>
     </main>
 
     <!--link VUE js-->
