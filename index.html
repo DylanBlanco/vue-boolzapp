@@ -74,7 +74,8 @@
                             <ul v-for="(contact, index) in contacts"
                             :class="{
                                 'active': index == chatActive
-                            }">
+                            }"
+                            @click="clickChat(index)">
                                 <li>
                                     <ul>
                                         <li class="logo-chat">
@@ -106,7 +107,7 @@
                             <li>
                                 <ul>
                                     <li class="logo-header">
-                                        <img src="img/avatar_2.jpg" alt="avatar_2">
+                                        <img v-for="(img, index) in contacts[chatActive]" :src="img.avatar" :alt="img.name">
                                     </li>
                                     <li>
                                         <h4>Michele</h4>
@@ -126,36 +127,17 @@
         
                     <!-- main messaggi -->
                     <main>
-                        <div v-for="(message, index) in contacts[chatActive].messages"
-                        :class="{
-                            'active': index == chatActive
-                        }">
-                            <div class="receive">
+                        <div v-for="(msg, index) in contacts[chatActive].messages">
+                            <div :class="{
+                                'received': msg.status == 'received',
+                                'sent': msg.status == 'sent',
+                            }">
                                 <div>
-                                    <h5>{{(contacts[chatActive].messages).message}}</h5>
+                                    <!-- <h5>{{contacts[chatActive].messages.message}}</h5> -->
+                                    <h5>{{msg.message}}</h5>
                                 </div>
                                 <div>
-                                    <p>12:00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="receive">
-                                <div>
-                                    <h5>Ricordati di stendere i panni</h5>
-                                </div>
-                                <div>
-                                    <p>12:00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="send">
-                                <div>
-                                    <h5>Tutto fatto!</h5>
-                                </div>
-                                <div>
-                                    <p>12:00</p>
+                                    <p>{{msg.date}}</p>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +150,8 @@
                                 <i class="fa-regular fa-face-smile"></i>
                             </li>
                             <li>
-                                <input type="text">
+                                <input type="text"
+                                placeholder="Scrivi messaggio">
                             </li>
                             <li>
                                 <i class="fa-solid fa-microphone"></i>

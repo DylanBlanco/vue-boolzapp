@@ -201,11 +201,11 @@ main .right-screen > main main > div > div {
     border-radius: 10px;
 }
 
-main .right-screen .receive {
+main .right-screen .received {
     align-self: flex-start;
     background-color: #FFFFFF;
 }
-main .right-screen .send {
+main .right-screen .sent {
     align-self: flex-end;
     background-color: #D5F9BA;
 }

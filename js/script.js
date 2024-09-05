@@ -169,6 +169,11 @@ createApp(
                     }
                 ]                
             };
-        }
-    }
+        },
+        methods: {
+            clickChat(index) {
+                console.log('hai clicacto sul contatto:', index);
+                this.chatActive = index;
+            },
+        }  }
 ).mount('#app');
