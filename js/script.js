@@ -5,6 +5,7 @@ createApp(
         data() {
             return {
                 chatActive: 0,
+                newMsg: '',
                 contacts: [
                     {
                         name: 'Michele',
@@ -175,5 +176,19 @@ createApp(
                 console.log('hai clicacto sul contatto:', index);
                 this.chatActive = index;
             },
-        }  }
+            sendMsg() {
+                this.contacts[this.chatActive].messages.push({
+                    message: this.newMsg,
+                    status: 'sent',
+                });
+                this.newMsg = '';
+                setTimeout(() => {
+                    this.contacts[this.chatActive].messages.push({
+                        message: 'Ok',
+                        status: 'received'
+                    });
+                },1000);
+            }
+        }  
+    }
 ).mount('#app');

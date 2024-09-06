@@ -12,6 +12,8 @@ RESET
     --aside-chats: #FFFFFF;
     --aside-bell: #F2FBFF;
     --active-chat: #EAEBEB;
+    --i-right-screen-msg: #6C7376;
+    --grey-p: #B1B1B1;
 }
 
 /***************
@@ -53,13 +55,23 @@ main .left-screen main .active {
     background-color: var(--active-chat);
 }
 
+main .right-screen nav ul li i {
+    color: var(--i-right-screen-msg);
+}
+
+main aside main p {
+    color: var(--grey-p);
+}
+
+i {
+    color: var(--grey-p);
+}
+
 /***************
 GENERAL
 ***************/
 ul {
     list-style: none;
-    /* padding-left: 0;
-    margin-left: 0; */
     display: flex;
 }
 
@@ -154,6 +166,16 @@ main aside main {
     overflow-y: auto;
 }
 
+main aside main p {
+    font-size: 0.8rem;
+}
+
+main aside main > div > ul li ul > li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /***************
 MAIN - RIGHT-SCREEN
 ***************/
@@ -224,4 +246,34 @@ main .right-screen nav ul {
     align-items: center;
     justify-content: space-between;
     background-color: beige;
+}
+
+main .right-screen nav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .right-screen nav ul li:first-child {
+    width: 5%;
+}
+
+main .right-screen nav ul li:nth-child(2) {
+    width: calc(100% - ( 5% + 5%));
+}
+
+main .right-screen nav ul li:last-child {
+    width: 5%;
+}
+
+main .right-screen nav ul li input {
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    height: 22px;
+    padding: 10px;
+}
+
+main .right-screen nav ul li i {
+    font-size: 1.2rem;
 }

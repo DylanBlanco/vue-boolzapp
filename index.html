@@ -107,10 +107,10 @@
                             <li>
                                 <ul>
                                     <li class="logo-header">
-                                        <img v-for="(img, index) in contacts[chatActive]" :src="img.avatar" :alt="img.name">
+                                        <img :src="contacts[chatActive].avatar" :alt="contacts[chatActive].name">
                                     </li>
                                     <li>
-                                        <h4>Michele</h4>
+                                        <h4>{{contacts[chatActive].name}}</h4>
                                         <p>Ultimo accesso oggi alle 12:00</p>
                                     </li>
                                 </ul>
@@ -151,7 +151,9 @@
                             </li>
                             <li>
                                 <input type="text"
-                                placeholder="Scrivi messaggio">
+                                placeholder="Scrivi messaggio"
+                                @keyup.enter="sendMsg()"
+                                v-model="newMsg">
                             </li>
                             <li>
                                 <i class="fa-solid fa-microphone"></i>
